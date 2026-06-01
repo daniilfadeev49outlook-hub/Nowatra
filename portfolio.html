@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио — NOWATRA GROUP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Мы используем cookie-файлы. <a href="#" data-modal="privacy">Политика конфиденциальности</a>.</p>
+        <button class="btn btn-accent" id="acceptCookies">Принять</button>
+    </div>
+
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo"><img src="logo.jpg" alt="NOWATRA GROUP" class="logo__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><span class="logo__fallback" style="display:none;">NOWATRA GROUP</span></a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Главная</a></li>
+                    <li><a href="services.html" class="nav__link">Услуги</a></li>
+                    <li><a href="portfolio.html" class="nav__link active">Портфолио</a></li>
+                    <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                </ul>
+                <a href="contacts.html#contactForm" class="btn btn-accent nav__cta">Заказать звонок</a>
+            </nav>
+            <button class="burger" id="burgerBtn"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="portfolio-page section">
+            <div class="container">
+                <h1 class="section__title reveal">Наши проекты</h1>
+                <div class="filters reveal">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="office">Офисы</button>
+                    <button class="filter-btn" data-filter="restaurant">Рестораны</button>
+                    <button class="filter-btn" data-filter="retail">Магазины</button>
+                    <button class="filter-btn" data-filter="warehouse">Склады</button>
+                </div>
+                <div class="portfolio__grid portfolio__grid--full" id="portfolioGrid">
+                    <div class="portfolio-item reveal" data-category="office">
+                        <div class="portfolio-item__img" style="background:#2a2a2a url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23444%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22160%22 text-anchor=%22middle%22 fill=%22%23C0C0C0%22 font-size=%2224%22>Офис IT-компании</text></svg>') center/cover no-repeat;"></div>
+                        <div class="portfolio-item__info"><h3>Офис IT-компании</h3><p>320 м² / 45 дней / 5,2 млн ₽</p></div>
+                    </div>
+                    <div class="portfolio-item reveal" data-category="restaurant">
+                        <div class="portfolio-item__img" style="background:#2a2a2a url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23444%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22160%22 text-anchor=%22middle%22 fill=%22%23C0C0C0%22 font-size=%2224%22>Ресторан на Арбате</text></svg>') center/cover no-repeat;"></div>
+                        <div class="portfolio-item__info"><h3>Ресторан «Арбат»</h3><p>180 м² / 60 дней / 3,8 млн ₽</p></div>
+                    </div>
+                    <div class="portfolio-item reveal" data-category="retail">
+                        <div class="portfolio-item__img" style="background:#2a2a2a url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23444%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22160%22 text-anchor=%22middle%22 fill=%22%23C0C0C0%22 font-size=%2224%22>Магазин одежды</text></svg>') center/cover no-repeat;"></div>
+                        <div class="portfolio-item__info"><h3>Магазин одежды</h3><p>150 м² / 30 дней / 2,1 млн ₽</p></div>
+                    </div>
+                    <div class="portfolio-item reveal" data-category="warehouse">
+                        <div class="portfolio-item__img" style="background:#2a2a2a url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23444%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22160%22 text-anchor=%22middle%22 fill=%22%23C0C0C0%22 font-size=%2224%22>Складской комплекс</text></svg>') center/cover no-repeat;"></div>
+                        <div class="portfolio-item__info"><h3>Склад</h3><p>2500 м² / 90 дней / 18 млн ₽</p></div>
+                    </div>
+                    <div class="portfolio-item reveal" data-category="office">
+                        <div class="portfolio-item__img" style="background:#2a2a2a url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23444%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22160%22 text-anchor=%22middle%22 fill=%22%23C0C0C0%22 font-size=%2224%22>Коворкинг центр</text></svg>') center/cover no-repeat;"></div>
+                        <div class="portfolio-item__info"><h3>Коворкинг-центр</h3><p>600 м² / 55 дней / 7,4 млн ₽</p></div>
+                    </div>
+                    <div class="portfolio-item reveal" data-category="restaurant">
+                        <div class="portfolio-item__img" style="background:#2a2a2a url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23444%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22160%22 text-anchor=%22middle%22 fill=%22%23C0C0C0%22 font-size=%2224%22>Кофейня</text></svg>') center/cover no-repeat;"></div>
+                        <div class="portfolio-item__info"><h3>Кофейня</h3><p>80 м² / 25 дней / 1,2 млн ₽</p></div>
+                    </div>
+                    <div class="portfolio-item reveal" data-category="retail">
+                        <div class="portfolio-item__img" style="background:#2a2a2a url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23444%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22160%22 text-anchor=%22middle%22 fill=%22%23C0C0C0%22 font-size=%2224%22>Салон красоты</text></svg>') center/cover no-repeat;"></div>
+                        <div class="portfolio-item__info"><h3>Салон красоты</h3><p>110 м² / 28 дней / 1,9 млн ₽</p></div>
+                    </div>
+                    <div class="portfolio-item reveal" data-category="warehouse">
+                        <div class="portfolio-item__img" style="background:#2a2a2a url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23444%22 width=%22400%22 height=%22300%22/><text x=%22200%22 y=%22160%22 text-anchor=%22middle%22 fill=%22%23C0C0C0%22 font-size=%2224%22>Логистический центр</text></svg>') center/cover no-repeat;"></div>
+                        <div class="portfolio-item__info"><h3>Логистический центр</h3><p>4000 м² / 120 дней / 32 млн ₽</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__col"><a href="index.html" class="logo footer__logo"><img src="logo.jpg" alt="NOWATRA GROUP" class="logo__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><span class="logo__fallback" style="display:none;">NOWATRA GROUP</span></a><p>ООО «NOWATRA GROUP»</p></div>
+            <div class="footer__col"><h4>Навигация</h4><ul><li><a href="index.html">Главная</a></li><li><a href="services.html">Услуги</a></li><li><a href="portfolio.html">Портфолио</a></li><li><a href="contacts.html">Контакты</a></li></ul></div>
+            <div class="footer__col"><h4>Контакты</h4><p>+7 (495) 123-45-67</p><p>info@nowatra-group.ru</p></div>
+            <div class="footer__col"><h4>Правовая информация</h4><ul><li><a href="#" data-modal="privacy">Политика конфиденциальности</a></li><li><a href="#" data-modal="agreement">Согласие на обработку ПД</a></li></ul></div>
+        </div>
+    </footer>
+
+    <div class="modal" id="privacyModal"><div class="modal__content glass-card"><button class="modal__close">&times;</button><h3>Политика конфиденциальности</h3><p>ООО «NOWATRA GROUP» соблюдает ФЗ-152.</p></div></div>
+    <div class="modal" id="agreementModal"><div class="modal__content glass-card"><button class="modal__close">&times;</button><h3>Согласие на обработку ПД</h3><p>Я согласен на обработку моих данных.</p></div></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

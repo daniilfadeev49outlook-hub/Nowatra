@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги — NOWATRA GROUP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Мы используем cookie-файлы. <a href="#" data-modal="privacy">Политика конфиденциальности</a>.</p>
+        <button class="btn btn-accent" id="acceptCookies">Принять</button>
+    </div>
+
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <img src="logo.jpg" alt="NOWATRA GROUP" class="logo__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <span class="logo__fallback" style="display:none;">NOWATRA GROUP</span>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Главная</a></li>
+                    <li><a href="services.html" class="nav__link active">Услуги</a></li>
+                    <li><a href="portfolio.html" class="nav__link">Портфолио</a></li>
+                    <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                </ul>
+                <a href="contacts.html#contactForm" class="btn btn-accent nav__cta">Заказать звонок</a>
+            </nav>
+            <button class="burger" id="burgerBtn"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="services-hero section">
+            <div class="container">
+                <h1 class="section__title reveal">Полный спектр услуг</h1>
+                <p class="section__subtitle reveal">От оценки рынка до юридического закрытия — мы берём на себя всё</p>
+            </div>
+        </section>
+
+        <section class="why-us section">
+            <div class="container">
+                <h2 class="section__title reveal">9 причин доверить нам ваш объект</h2>
+                <div class="why-us__grid">
+                    <div class="why-card reveal glass-card"><i class="icon">⚡</i><h3>Быстрота</h3><p>Собственный склад и бригады позволяют выполнять ремонт на 30% быстрее рыночных сроков.</p></div>
+                    <div class="why-card reveal glass-card"><i class="icon">🛡️</i><h3>Ответственность на нас</h3><p>Вы получаете еженедельные фотоотчёты и доступ к онлайн-камере на объекте.</p></div>
+                    <div class="why-card reveal glass-card"><i class="icon">✅</i><h3>Гарантия от 2 лет</h3><p>Все работы застрахованы. В случае дефектов — ремонт за наш счёт в течение 48 часов.</p></div>
+                    <div class="why-card reveal glass-card"><i class="icon">📋</i><h3>Бесплатная оценка</h3><p>Выезд инженера и составление сметы в трёх вариантах (эконом, стандарт, премиум).</p></div>
+                    <div class="why-card reveal glass-card"><i class="icon">📊</i><h3>Оценка рынка</h3><p>Анализируем целевую аудиторию и конкурентов, даём рекомендации по зонированию и дизайну.</p></div>
+                    <div class="why-card reveal glass-card"><i class="icon">🏗️</i><h3>Ремонт любой сложности</h3><p>Капитальный ремонт, перепланировка, монтаж инженерных систем — лицензия СРО.</p></div>
+                    <div class="why-card reveal glass-card"><i class="icon">📝</i><h3>Административные вопросы</h3><p>Получаем разрешения на перепланировку, согласовываем вывески, переводим помещения в нежилой фонд.</p></div>
+                    <div class="why-card reveal glass-card"><i class="icon">🏢</i><h3>Работа с УК</h3><p>Решаем вопросы с управляющей компанией: отключение стояков, вывоз мусора, допуск бригад.</p></div>
+                    <div class="why-card reveal glass-card"><i class="icon">⚖️</i><h3>Юридическая чистота</h3><p>Договор с фиксированной сметой, поэтапная сдача-приёмка, полный пакет закрывающих документов.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing section">
+            <div class="container">
+                <h2 class="section__title reveal">Стоимость услуг</h2>
+                <div class="pricing__grid">
+                    <div class="price-card reveal glass-card">
+                        <h3>Косметический ремонт</h3>
+                        <div class="price">от 4 500 ₽/м²</div>
+                        <ul>
+                            <li>Отделка стен и потолков</li>
+                            <li>Замена напольных покрытий</li>
+                            <li>Покраска, обои</li>
+                            <li>Срок: от 7 дней</li>
+                        </ul>
+                    </div>
+                    <div class="price-card reveal glass-card">
+                        <h3>Капитальный ремонт</h3>
+                        <div class="price">от 12 000 ₽/м²</div>
+                        <ul>
+                            <li>Перепланировка</li>
+                            <li>Замена коммуникаций</li>
+                            <li>Черновая и чистовая отделка</li>
+                            <li>Срок: от 30 дней</li>
+                        </ul>
+                    </div>
+                    <div class="price-card reveal glass-card">
+                        <h3>Дизайнерский ремонт</h3>
+                        <div class="price">от 18 000 ₽/м²</div>
+                        <ul>
+                            <li>Индивидуальный проект</li>
+                            <li>Авторский надзор</li>
+                            <li>Премиум-материалы</li>
+                            <li>Срок: по проекту</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="pricing__note reveal">* Точная смета после бесплатного выезда специалиста</p>
+            </div>
+        </section>
+
+        <section class="contact-form section" id="serviceForm">
+            <div class="container">
+                <div class="form-card glass-card reveal">
+                    <h2 class="section__title">Оставьте заявку на консультацию</h2>
+                    <form class="form" id="servicesForm">
+                        <div class="form__group"><input type="text" placeholder="Ваше имя" required></div>
+                        <div class="form__group"><input type="tel" placeholder="+7 (___) ___-__-__" required></div>
+                        <div class="form__group"><textarea placeholder="Что нужно сделать?" rows="3"></textarea></div>
+                        <div class="form__agree">
+                            <label><input type="checkbox" required> Я согласен на обработку персональных данных (<a href="#" data-modal="agreement">Согласие</a>, <a href="#" data-modal="privacy">Политика</a>)</label>
+                        </div>
+                        <button type="submit" class="btn btn-accent btn-pulse btn-large">Получить консультацию</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__col">
+                <a href="index.html" class="logo footer__logo"><img src="logo.jpg" alt="NOWATRA GROUP" class="logo__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><span class="logo__fallback" style="display:none;">NOWATRA GROUP</span></a>
+                <p>ООО «NOWATRA GROUP»<br>ИНН 7701234567, ОГРН 1234567890123</p>
+            </div>
+            <div class="footer__col"><h4>Навигация</h4><ul><li><a href="index.html">Главная</a></li><li><a href="services.html">Услуги</a></li><li><a href="portfolio.html">Портфолио</a></li><li><a href="contacts.html">Контакты</a></li></ul></div>
+            <div class="footer__col"><h4>Контакты</h4><p>+7 (495) 123-45-67</p><p>info@nowatra-group.ru</p></div>
+            <div class="footer__col"><h4>Правовая информация</h4><ul><li><a href="#" data-modal="privacy">Политика конфиденциальности</a></li><li><a href="#" data-modal="agreement">Согласие на обработку ПД</a></li></ul></div>
+        </div>
+    </footer>
+
+    <div class="modal" id="privacyModal"><div class="modal__content glass-card"><button class="modal__close">&times;</button><h3>Политика конфиденциальности</h3><p>ООО «NOWATRA GROUP» соблюдает ФЗ-152.</p></div></div>
+    <div class="modal" id="agreementModal"><div class="modal__content glass-card"><button class="modal__close">&times;</button><h3>Согласие на обработку ПД</h3><p>Я согласен на обработку моих данных.</p></div></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — NOWATRA GROUP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Мы используем cookie-файлы. <a href="#" data-modal="privacy">Политика конфиденциальности</a>.</p>
+        <button class="btn btn-accent" id="acceptCookies">Принять</button>
+    </div>
+
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo"><img src="logo.jpg" alt="NOWATRA GROUP" class="logo__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><span class="logo__fallback" style="display:none;">NOWATRA GROUP</span></a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Главная</a></li>
+                    <li><a href="services.html" class="nav__link">Услуги</a></li>
+                    <li><a href="portfolio.html" class="nav__link">Портфолио</a></li>
+                    <li><a href="contacts.html" class="nav__link active">Контакты</a></li>
+                </ul>
+                <a href="#contactForm" class="btn btn-accent nav__cta">Заказать звонок</a>
+            </nav>
+            <button class="burger" id="burgerBtn"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="contacts-page section">
+            <div class="container">
+                <h1 class="section__title reveal">Контакты</h1>
+                <div class="contacts__grid">
+                    <div class="contacts__info reveal">
+                        <div class="info-block">
+                            <h3>ООО «NOWATRA GROUP»</h3>
+                            <p>ИНН 7701234567</p>
+                            <p>ОГРН 1234567890123</p>
+                            <p>Юр. адрес: 121596, г. Москва, ул. Горбунова, д. 2, стр. 3</p>
+                            <p>Фактический адрес: Москва, ул. Горбунова, 2с3, офис 404</p>
+                            <p>Телефон: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                            <p>Email: <a href="mailto:info@nowatra-group.ru">info@nowatra-group.ru</a></p>
+                        </div>
+                        <div class="map reveal">
+                            <iframe src="https://yandex.ru/map-widget/v1/?ll=37.423704%2C55.735120&z=14&pt=37.423704,55.735120&lang=ru_RU" width="100%" height="300" style="border:0; border-radius:16px;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="contacts__form reveal" id="contactForm">
+                        <div class="form-card glass-card">
+                            <h3>Оставьте заявку</h3>
+                            <form class="form" id="contactsForm">
+                                <div class="form__group"><input type="text" placeholder="Ваше имя" required></div>
+                                <div class="form__group"><input type="tel" placeholder="+7 (___) ___-__-__" required></div>
+                                <div class="form__group"><textarea placeholder="Ваше сообщение" rows="3"></textarea></div>
+                                <div class="form__agree">
+                                    <label><input type="checkbox" required> Я согласен на обработку персональных данных (<a href="#" data-modal="agreement">Согласие</a>, <a href="#" data-modal="privacy">Политика</a>)</label>
+                                </div>
+                                <button type="submit" class="btn btn-accent btn-pulse btn-large">Отправить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__col"><a href="index.html" class="logo footer__logo"><img src="logo.jpg" alt="NOWATRA GROUP" class="logo__img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><span class="logo__fallback" style="display:none;">NOWATRA GROUP</span></a><p>ООО «NOWATRA GROUP»</p></div>
+            <div class="footer__col"><h4>Навигация</h4><ul><li><a href="index.html">Главная</a></li><li><a href="services.html">Услуги</a></li><li><a href="portfolio.html">Портфолио</a></li><li><a href="contacts.html">Контакты</a></li></ul></div>
+            <div class="footer__col"><h4>Контакты</h4><p>+7 (495) 123-45-67</p><p>info@nowatra-group.ru</p></div>
+            <div class="footer__col"><h4>Правовая информация</h4><ul><li><a href="#" data-modal="privacy">Политика конфиденциальности</a></li><li><a href="#" data-modal="agreement">Согласие на обработку ПД</a></li></ul></div>
+        </div>
+    </footer>
+
+    <div class="modal" id="privacyModal"><div class="modal__content glass-card"><button class="modal__close">&times;</button><h3>Политика конфиденциальности</h3><p>ООО «NOWATRA GROUP» соблюдает ФЗ-152.</p></div></div>
+    <div class="modal" id="agreementModal"><div class="modal__content glass-card"><button class="modal__close">&times;</button><h3>Согласие на обработку ПД</h3><p>Я согласен на обработку моих данных.</p></div></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
