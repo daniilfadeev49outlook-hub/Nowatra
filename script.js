@@ -1,5 +1,4 @@
-// ⚙️ Укажите URL вашего Google Apps Script Web App
-const GOOGLE_SHEET_URL = ''; // например, 'https://script.google.com/macros/s/.../exec'
+const GOOGLE_SHEET_URL = ''; // ваш URL при необходимости
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -25,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // MODALS
+  // MODALS (все)
   const modals = document.querySelectorAll('.modal');
   const modalTriggers = document.querySelectorAll('[data-modal]');
   modalTriggers.forEach(trigger => {
@@ -41,100 +40,120 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
   });
 
-  // Функция отправки в Google Таблицу
+  // Функция отправки в Google Sheets
   async function sendToSheet(formData) {
-    if (!GOOGLE_SHEET_URL) return null; // если не настроено – просто вернём успех
+    if (!GOOGLE_SHEET_URL) return null;
     try {
-      const response = await fetch(GOOGLE_SHEET_URL, {
-        method: 'POST',
-        body: formData
-      });
+      const response = await fetch(GOOGLE_SHEET_URL, { method: 'POST', body: formData });
       return response.ok;
-    } catch (error) {
+    } catch (e) {
       return false;
     }
   }
 
-  // FORMS
-  const forms = document.querySelectorAll('form');
-  forms.forEach(form => {
+  // Универсальная обработка форм (все, кроме калькулятора, exit, чата — они отдельно)
+  document.querySelectorAll('form:not(#calcForm):not(#exitForm):not(#chatForm)').forEach(form => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const checkboxes = form.querySelectorAll('input[type="checkbox"]');
-      let allChecked = true;
-      checkboxes.forEach(cb => { if (!cb.checked) allChecked = false; });
-      if (!allChecked) {
+      if (checkboxes.length && ![...checkboxes].every(cb => cb.checked)) {
         alert('Пожалуйста, дайте согласие на обработку персональных данных.');
         return;
       }
-
-      const formData = new FormData(form);
-      const sheetResult = await sendToSheet(formData);
-
-      if (sheetResult === null) {
-        // Нет URL – имитация
-        alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
-      } else if (sheetResult) {
-        alert('Заявка успешно отправлена! Мы скоро свяжемся с вами.');
-      } else {
-        alert('Произошла ошибка при отправке. Пожалуйста, позвоните нам по телефону +7 (495) 123-45-67.');
-      }
+      const data = new FormData(form);
+      const res = await sendToSheet(data);
+      alert(res === null ? 'Спасибо! Заявка принята.' : (res ? 'Отправлено!' : 'Ошибка. Позвоните нам.'));
       form.reset();
     });
   });
 
-  // PORTFOLIO FILTERS
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const portfolioItems = document.querySelectorAll('.portfolio-item[data-category]');
-  if (filterBtns.length && portfolioItems.length) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        portfolioItems.forEach(item => {
-          if (filter === 'all' || item.dataset.category === filter) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
+  // ТАЙМЕР
+  function updateTimer() {
+    const now = new Date();
+    const end = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
+    const diff = end - now;
+    if (diff <= 0) return;
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('days').textContent = String(d).padStart(2, '0');
+    document.getElementById('hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+  }
+  if (document.getElementById('timer')) {
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  }
+
+  // КАЛЬКУЛЯТОР
+  const calcBtn = document.getElementById('calcBtn');
+  if (calcBtn) {
+    calcBtn.addEventListener('click', () => {
+      const area = parseFloat(document.getElementById('calcArea').value);
+      if (!area || area < 10) { alert('Введите площадь больше 10 м²'); return; }
+      const repair = document.getElementById('calcRepair').value;
+      const prices = { cosmetic: [4500, 6000], capital: [12000, 16000], design: [18000, 25000] };
+      const [min, max] = prices[repair];
+      const range = `${Math.round(area * min).toLocaleString()} – ${Math.round(area * max).toLocaleString()} ₽`;
+      document.getElementById('calcPrice').textContent = range;
+      document.getElementById('calcResult').style.display = 'block';
     });
   }
-// Плавающая кнопка – открытие быстрой заявки
-const floatingCta = document.getElementById('floatingCta');
-const quickFormModal = document.getElementById('quickFormModal');
-if (floatingCta && quickFormModal) {
-  floatingCta.addEventListener('click', () => {
-    quickFormModal.classList.add('active');
-  });
-}
 
-// Обработка быстрой формы (так же, как основных, с Google Sheets)
-const quickForm = document.getElementById('quickForm');
-if (quickForm) {
-  quickForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const checkbox = quickForm.querySelector('input[type="checkbox"]');
-    if (!checkbox.checked) {
-      alert('Пожалуйста, дайте согласие на обработку персональных данных.');
-      return;
-    }
-    const formData = new FormData(quickForm);
-    const sheetResult = await sendToSheet(formData);
+  // EXIT INTENT
+  const exitPopup = document.getElementById('exitPopup');
+  let exitShown = false;
+  if (exitPopup) {
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY <= 0 && !exitShown && !sessionStorage.getItem('exitPopupClosed')) {
+        exitPopup.classList.add('active');
+        exitShown = true;
+      }
+    });
+    exitPopup.querySelector('.modal__close').addEventListener('click', () => {
+      exitPopup.classList.remove('active');
+      sessionStorage.setItem('exitPopupClosed', '1');
+    });
+    exitPopup.addEventListener('click', (e) => { if (e.target === exitPopup) exitPopup.classList.remove('active'); });
+    document.getElementById('exitForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const cb = e.target.querySelector('input[type="checkbox"]');
+      if (!cb.checked) { alert('Дайте согласие'); return; }
+      const data = new FormData(e.target);
+      const res = await sendToSheet(data);
+      alert(res === null ? 'Скидка зафиксирована! Ждите звонка.' : (res ? 'Отправлено!' : 'Ошибка.'));
+      e.target.reset();
+      exitPopup.classList.remove('active');
+      sessionStorage.setItem('exitPopupClosed', '1');
+    });
+  }
 
-    if (sheetResult === null) {
-      alert('Спасибо! Заявка принята. Мы свяжемся с вами.');
-    } else if (sheetResult) {
-      alert('Заявка успешно отправлена! Ожидайте звонка.');
-    } else {
-      alert('Ошибка отправки. Позвоните нам +7 (495) 123-45-67.');
-    }
-    quickForm.reset();
-    quickFormModal.classList.remove('active');
-  });
-}
+  // ОНЛАЙН-ЧАТ
+  const chatFloat = document.getElementById('chatFloat');
+  const chatModal = document.getElementById('chatModal');
+  if (chatFloat && chatModal) {
+    chatFloat.addEventListener('click', () => chatModal.classList.add('active'));
+    chatModal.querySelector('.modal__close').addEventListener('click', () => chatModal.classList.remove('active'));
+    chatModal.addEventListener('click', (e) => { if (e.target === chatModal) chatModal.classList.remove('active'); });
+    document.getElementById('chatForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const cb = e.target.querySelector('input[type="checkbox"]');
+      if (!cb.checked) { alert('Дайте согласие'); return; }
+      const data = new FormData(e.target);
+      const res = await sendToSheet(data);
+      alert(res === null ? 'Сообщение отправлено! Мы скоро ответим.' : (res ? 'Отправлено!' : 'Ошибка.'));
+      e.target.reset();
+      chatModal.classList.remove('active');
+    });
+  }
+
+  // ПЛАВАЮЩАЯ КНОПКА ЗАЯВКИ
+  const floatingCta = document.getElementById('floatingCta');
+  const quickFormModal = document.getElementById('quickFormModal'); // если есть
+  // (для совместимости с предыдущим кодом, можно оставить заглушку)
+  
   // GSAP REVEAL
   gsap.registerPlugin(ScrollTrigger);
   document.querySelectorAll('.reveal').forEach(el => {
@@ -143,13 +162,4 @@ if (quickForm) {
       scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
     });
   });
-
-  // PARALLAX SHAPES
-  gsap.utils.toArray('.shape').forEach((shape, i) => {
-    gsap.to(shape, {
-      y: -30 + i * 10,
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-    });
-  });
-
 });

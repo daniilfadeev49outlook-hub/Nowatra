@@ -131,5 +131,57 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
+    <!-- Таймер акции (опционально) -->
+<section class="promo-timer section" id="promoTimer">
+    <div class="container">
+        <p>🔥 Скидка 15% при заключении договора до конца месяца! Осталось:</p>
+        <div class="timer" id="timer">
+            <span class="timer__item"><span id="days">00</span>д</span>
+            <span class="timer__item"><span id="hours">00</span>ч</span>
+            <span class="timer__item"><span id="minutes">00</span>м</span>
+            <span class="timer__item"><span id="seconds">00</span>с</span>
+        </div>
+        <a href="contacts.html#contactForm" class="btn btn-accent btn-pulse" style="margin-top:12px;">Зафиксировать скидку</a>
+    </div>
+</section>
+
+<!-- Exit Intent Popup -->
+<div class="modal" id="exitPopup">
+    <div class="modal__content glass-card" style="max-width:500px;">
+        <button class="modal__close">&times;</button>
+        <h3>Уже уходите? Зафиксируйте скидку 10% на первый заказ!</h3>
+        <form class="form" id="exitForm">
+            <div class="form__group"><input type="text" name="name" placeholder="Ваше имя" required></div>
+            <div class="form__group"><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></div>
+            <div class="form__agree"><label><input type="checkbox" required> Согласен на обработку ПД</label></div>
+            <button type="submit" class="btn btn-accent btn-pulse">Зафиксировать скидку</button>
+        </form>
+    </div>
+</div>
+
+<!-- Онлайн-чат -->
+<div class="modal" id="chatModal">
+    <div class="modal__content glass-card" style="max-width:400px;">
+        <button class="modal__close">&times;</button>
+        <h3>Онлайн-консультант</h3>
+        <p>Задайте вопрос, и мы ответим в ближайшее время.</p>
+        <form class="form" id="chatForm">
+            <div class="form__group"><input type="text" name="name" placeholder="Ваше имя" required></div>
+            <div class="form__group"><input type="tel" name="phone" placeholder="+7 (___) ___-__-__"></div>
+            <div class="form__group"><textarea name="message" placeholder="Ваш вопрос" rows="3" required></textarea></div>
+            <div class="form__agree"><label><input type="checkbox" required> Согласен на обработку ПД</label></div>
+            <button type="submit" class="btn btn-accent">Отправить</button>
+        </form>
+    </div>
+</div>
+
+<!-- Плавающая кнопка чата -->
+<div class="chat-float" id="chatFloat">💬</div>
+
+<!-- Плавающая кнопка заявки -->
+<div class="floating-cta" id="floatingCta">
+    <span class="floating-cta__icon">✉️</span>
+    <span class="floating-cta__text">Отправить заявку</span>
+</div>
 </body>
 </html>
